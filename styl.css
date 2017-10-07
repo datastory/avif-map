@@ -1,0 +1,11 @@
+.app {
+	position: relative;
+}
+
+#map {
+	height: 70vh;
+}
+
+.datepicker {
+	position: absolute;
+}
