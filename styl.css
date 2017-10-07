@@ -1,6 +1,3 @@
-.app {
-	position: relative;
-}
 
 #map {
 	height: 70vh;
@@ -8,4 +5,9 @@
 
 .datepicker {
 	position: absolute;
+	z-index: 1000;
+}
+
+.ui-datepicker {
+	z-index: 1000;
 }
