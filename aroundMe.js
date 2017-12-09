@@ -28,7 +28,6 @@ function getAround(start, end) {
 };
 
 $('.filtr').click(function() {
-    alert('abs')
     var selStart = $('#start').val(),
         selEnd = $('#stop').val()
 
