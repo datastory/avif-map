@@ -26,9 +26,7 @@ var tiles = L.tileLayer('http://b.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 tiles.addTo(map);
 
 function drawMap(taxon, start, end, count) {
-	//var url = 'http://birds.cz/avif/api_test.php?order=ObsDate&order_direction=DESC&taxon=' + taxon + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=' + count;
-	var url = 'https://d166446d1v6a0f.cloudfront.net?order=ObsDate&order_direction=DESC&taxon=' + taxon + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=' + count;
-
+	var url = 'http://birds.cz/avif/api_test.php?order=ObsDate&order_direction=DESC&taxon=' + taxon + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=' + count;
 	map.eachLayer(function (layer) {
     	map.removeLayer(layer)
 	});
