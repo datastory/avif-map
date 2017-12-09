@@ -17,6 +17,8 @@ function getAround(start, end) {
         var url = 'http://birds.cz/avif/api_test.php?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' 
         + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=200';
 
+        alert(url)
+
         $.get(url, function(data) {
             var cont = 'Celkem: ' + data.length + '<br>';
             data.forEach(function(i) {
