@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="./styl.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./styl.css">
 </head>
 <body>
-<div id="taxon"></div>
 <div id="time">
-	<p>Od: <input type="text" class="datepicker" id="start"></p>
-	<p>Do: <input type="text" class="datepicker" id="stop"></p>
+    <p>Od: <input type="text" class="datepicker" id="start"></p>
+    <p>Do: <input type="text" class="datepicker" id="stop"></p>
 </div>
-<p>Počet: <input type="text" type="number" max="2000" class="count" value="100"></p>
-<button class="filtr" type="button">Filtruj</button><span class="returnedCount"></span>
-<div id="map"></div>
+<button class="filtr" type="button">Hledej</button>
+<div id="list"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-<script src="./taxa.js"></script>
-<script src="./avifMap.js"></script>
+<script src="./aroundMe.js"></script>
 </body>
 </html>
