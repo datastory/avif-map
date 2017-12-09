@@ -27,7 +27,7 @@ function getAround(start, end) {
     });   
 };
 
-$('.filtr').on('click', function() {
+$('.filtr').click(function() {
     alert('abs')
     var selStart = $('#start').val(),
         selEnd = $('#stop').val()
