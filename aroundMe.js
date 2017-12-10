@@ -19,11 +19,27 @@ function getAround(start, end) {
         + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=200';
 
         $.get(encodeURI(url), function(data) {
-            var cont = 'Celkem: ' + data.length + '<br>';
+            var l = {};
             data.forEach(function(i) {
-                cont += i.Species + ' (' + i.DateCr + '), ' + i.SiteName + ', ' + i.municipality + ', <a target="_blank" href="http://birds.cz/avif/obsdetail.php?obs_id=' + i.Id + '">detail</a><br>'
+                var name = i.Species;
+                if (!(name in l)) {
+                    l[name] = [];
+                }
+                l[name].push(i)
             })
+            var cont = '<div id="accordion">';
+            for (var i in l) {
+                cont += '<h3>' + i + ' (' + l[i].length + ')</h3><div>'
+                l[i].forEach(function (v) {
+                    cont += '<p>' + v.DateCr + ', ' + v.SiteName + ', ' + v.municipality + ', <a target="_blank" href="http://birds.cz/avif/obsdetail.php?obs_id=' + v.Id + '">detail</a></p>'
+                })
+                cont += '</div>' 
+            }
+            cont += '</div>'
             $('#list').html(cont);
+            $( "#accordion" ).accordion({
+                heightStyle: "content"
+            });
         })
     });   
 };
