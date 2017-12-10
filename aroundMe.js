@@ -18,7 +18,7 @@ function getAround(start, end) {
         var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' 
         + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=200';
 
-        $.get(url, function(data) {
+        $.get(encodeURI(url), function(data) {
             var cont = 'Celkem: ' + data.length + '<br>';
             data.forEach(function(i) {
                 cont += i.Species + ' (' + i.DateCr + '), ' + i.SiteName + ', ' + i.municipality + ', <a target="_blank" href="http://birds.cz/avif/obsdetail.php?obs_id=' + i.Id + '">detail</a><br>'

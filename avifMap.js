@@ -34,16 +34,7 @@ function drawMap(taxon, start, end, count) {
 
 	tiles.addTo(map);
 
-	$.ajax({
-	    headers: {"X-Test-Header": "test-value"},
-	    dataType: "json",
-	    url: url,
-	    success: function(data) {
-	        console.log('xx', data)
-	    }
-	});
-
-	$.getJSON(url, function(data) {
+	$.getJSON(encodeURI(url), function(data) {
 		var markers = L.markerClusterGroup();
 		Object.values(data).forEach(function(e) {
 			if (parseFloat(e.Latitude) > 0) {
