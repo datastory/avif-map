@@ -14,7 +14,8 @@ function setPos(pos){
 
 function getAround(start, end) {
     navigator.geolocation.getCurrentPosition(function positionSuccess(loc) {
-        var url = 'http://birds.cz/avif/api_test.php?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' 
+        //http://birds.cz/avif/api_test.php
+        var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' 
         + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=200';
 
         $.get(url, function(data) {
