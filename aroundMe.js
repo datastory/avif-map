@@ -15,8 +15,7 @@ function setPos(pos){
 function getAround(start, end) {
     navigator.geolocation.getCurrentPosition(function positionSuccess(loc) {
         //http://birds.cz/avif/api_test.php
-        var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' 
-        + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0&onpage=200';
+        var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0';
 
         $.get(encodeURI(url), function(data) {
             var l = {};
