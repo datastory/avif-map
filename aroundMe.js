@@ -29,7 +29,13 @@ function getAround(start, end) {
             })
             var cont = '<div id="accordion">';
             for (var i in l) {
-                cont += '<h3>' + i + ' (' + l[i].length + ')</h3><div>'
+                c = 'black';
+                if (l[i][0]['yIsRare'] == 1) {
+                    c = 'red';
+                } else if (l[i][0]['IsInteresting'] == 1) {
+                    c = 'blue';
+                };
+                cont += '<h3 style="color: ' + c + ';">' + i + ' (' + l[i].length + ')</h3><div>'
                 l[i].forEach(function (v) {
                     cont += '<p>' + v.DateCr + ', ' + v.SiteName + ', ' + v.municipality + ', <a target="_blank" href="http://birds.cz/avif/obsdetail.php?obs_id=' + v.Id + '">detail</a></p>'
                 })
