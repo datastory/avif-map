@@ -15,7 +15,7 @@ function setPos(pos){
 function getAround(start, end) {
     navigator.geolocation.getCurrentPosition(function positionSuccess(loc) {
         //http://birds.cz/avif/api_test.php
-        var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=2.0&latitude=' + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0';
+        var url = 'https://45fzjpt8jg.execute-api.eu-central-1.amazonaws.com/prod/?order=ObsDate&order_direction=DESC&radius=10.0&latitude=' + loc.coords.latitude + '&longitude=' + loc.coords.longitude + '&dates%5b%5d=' + start + '|' + end + '&page=0';
 
         $.get(encodeURI(url), function(data) {
             var l = {};
@@ -49,9 +49,36 @@ function getAround(start, end) {
     });   
 };
 
+function getEbird() {
+    navigator.geolocation.getCurrentPosition(function positionSuccess(loc) {
+        var url = "https://ebird.org/ws2.0/data/obs/geo/recent?lat=" + loc.coords.latitude + "&lng=" + 
+        + loc.coords.longitude + "&sort=species&dist=10&sppLocale=cs";
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-eBirdApiToken': 'ghijpdbtags4',
+            },
+            success: function (result) {
+                var cont = '<div id="ebird_accordion">';
+                result.forEach(function(i) {
+                    cont += '<p>' + i.comName + ' (' + i.howMany + '), ' + i.obsDt + ', ' + i.locName + '</p>'
+                })
+                cont += '</div>'
+                $('#list_ebird').html(cont);
+            },
+            error: function (error) {
+                alert('eBird err!')
+            }
+        });
+    });   
+};
+
 $('.filtr').click(function() {
     var selStart = $('#start').val(),
-        selEnd = $('#stop').val()
-
+        selEnd = $('#start').val()
     getAround(selStart, selEnd)
+    getEbird()
 });
